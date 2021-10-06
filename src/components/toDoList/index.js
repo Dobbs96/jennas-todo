@@ -1,6 +1,6 @@
 import React from "react";
 
-function toDoList() {
+function ToDoList() {
   return (
     <main>
       <h1>To Do</h1>
@@ -28,4 +28,4 @@ function toDoList() {
   );
 }
 
-export default toDoList;
+export default ToDoList;

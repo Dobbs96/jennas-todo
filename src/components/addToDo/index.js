@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
-function addToDo() {
+function AddToDo() {
+  const [formState, setFormState] = useState({ toDo: "", dueDate: "" });
+
+  const handleToDoList = async (event) => {
+    event.preventDefault();
+    const myToDo = await setFormState({
+      variables: {
+        toDo: formState.toDo,
+        dueDate: formState.dueDate,
+      },
+    });
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
   return (
     <div>
-      <form>
+      <form onSubmit={handleToDoList}>
         <div className="flex-row space-between my-2">
           <label htmlFor="toDo">To Do:</label>
           <input
@@ -11,6 +30,7 @@ function addToDo() {
             name="toDo"
             type="toDo"
             id="toDo"
+            onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -20,6 +40,7 @@ function addToDo() {
             name="dueDate"
             type="dueDate"
             id="dueDate"
+            onChange={handleChange}
           />
         </div>
         <div className="flex-row flex-end">
@@ -30,4 +51,4 @@ function addToDo() {
   );
 }
 
-export default addToDo;
+export default AddToDo;

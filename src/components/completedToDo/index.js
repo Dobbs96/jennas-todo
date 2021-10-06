@@ -1,6 +1,6 @@
 import React from "react";
 
-function completedToDo() {
+function CompletedToDo() {
   return (
     <section>
       <h1>Complete</h1>
@@ -22,4 +22,4 @@ function completedToDo() {
   );
 }
 
-export default completedToDo;
+export default CompletedToDo;
